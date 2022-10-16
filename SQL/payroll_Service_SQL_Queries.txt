@@ -19,7 +19,7 @@ insert into employee_payroll(name, salary, start_date) values
 #UC4 -> Retriving all data
 SELECT * FROM employee_payroll
 
-#UC4 -> Retrive salary data
+#UC5 -> Retrive salary data
 select * from employee_payroll order by name desc;
 select * from employee_payroll where name='Bill' or salary >= 300000.00;
 select min(salary) from employee_payroll;
@@ -33,3 +33,6 @@ select * from employee_payroll limit 2;
 select * from employee_payroll WHERE name LIKE '____%';
 update employee_payroll set name = 'Amit' where name = 'Bill';
 select * from employee_payroll;
+
+#UC6 -> add gender column to payroll table
+UPDATE employee_payroll set gender ='M' where name = 'Bill' or name ='Charlie';
