@@ -1,8 +1,10 @@
 package main.java;
 
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Enumeration;
 
 public class JDBCConnection {
 	public static Connection connectToDatabase() throws SQLException {
@@ -26,6 +28,14 @@ public class JDBCConnection {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+
+	private static void listDrivers() {
+		Enumeration<Driver> driverList = DriverManager.getDrivers();
+		while (driverList.hasMoreElements()) {
+			Driver driverClass = driverList.nextElement();
+			System.out.println(driverClass.getClass().getName() + " ");
 		}
 	}
 }
