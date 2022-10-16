@@ -44,3 +44,5 @@ alter table employee_payroll add column(phonenumber int, address varchar(20), de
 alter table employee_payroll modify column department varchar(20) not null;
 alter table employee_payroll modify column address varchar(20) default 'TBD';
 
+#UC9 -> Ability to extend employee_payroll table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay
+alter table employee_payroll add column(basic pay int, deduction int, taxable pay int, income tax int, net pay int);
