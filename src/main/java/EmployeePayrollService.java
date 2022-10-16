@@ -1,7 +1,9 @@
 package main.java;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ public class EmployeePayrollService {
 			ResultSet resultSet = statement.executeQuery("select * from employee_payroll");
 			while (resultSet.next()) {
 				employeePayrollDataList.add(new EmployeePayrollData(resultSet.getInt(1), resultSet.getString(2),
-						resultSet.getString(3), resultSet.getInt(4), resultSet.getDate(5)));
+						resultSet.getString(3), resultSet.getDouble(4), resultSet.getDate(5)));
 			}
 			connection.close();
 			return employeePayrollDataList;
@@ -25,8 +27,16 @@ public class EmployeePayrollService {
 		}
 	}
 
-	public static void main(String[] args) throws EmployeePayrollException {
-		EmployeePayrollService employeePayrollService = new EmployeePayrollService();
-		employeePayrollService.retrieveData().forEach((employeePayrollData -> System.out.println(employeePayrollData)));
+	public int updateSalary(String empName, double salary) throws SQLException {
+		Connection connection = JDBCConnection.connectToDatabase();
+		PreparedStatement preparedStatement = connection
+				.prepareStatement("update employee_payroll set salary = ? where name = ?");
+		preparedStatement.setDouble(1, salary);
+		preparedStatement.setString(2, empName);
+		int rowsAffected = preparedStatement.executeUpdate();
+		if (rowsAffected > 0) {
+			System.out.println("salary updated successfully!");
+		}
+		return rowsAffected;
 	}
 }
