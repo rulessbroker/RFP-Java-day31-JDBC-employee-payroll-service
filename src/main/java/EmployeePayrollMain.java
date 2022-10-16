@@ -17,6 +17,9 @@ public class EmployeePayrollMain {
 		
 		System.out.println("\nSUM(salary) of male and female: ");
         employeePayrollService.getSumOfSalaryByMaleAndFemale();
+        
+        System.out.println("add new Employee");
+        employeePayrollService.addEmployee();
 
 	}
 }
