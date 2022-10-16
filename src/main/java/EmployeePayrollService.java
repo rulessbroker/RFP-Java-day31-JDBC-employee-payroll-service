@@ -27,8 +27,9 @@ public class EmployeePayrollService {
 			connection.close();
 			return employeePayrollDataList;
 		} catch (Exception e) {
-			throw new EmployeePayrollException();
+			System.out.println(e);;
 		}
+		return null;
 	}
 
 	public int updateSalary(String empName, double salary) throws SQLException {

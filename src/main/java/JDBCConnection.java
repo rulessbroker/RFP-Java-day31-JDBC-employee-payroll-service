@@ -9,7 +9,7 @@ import java.util.Enumeration;
 public class JDBCConnection {
 	public static Connection connectToDatabase() throws SQLException {
 
-		String DBName = "employee_payroll";
+		String DBName = "payroll_service";
 		String URL = "jdbc:mysql://localhost:3306/" + DBName;
 		String dbUserName = "root";
 		String dbPass = "Rahul@123";
@@ -31,6 +31,7 @@ public class JDBCConnection {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void listDrivers() {
 		Enumeration<Driver> driverList = DriverManager.getDrivers();
 		while (driverList.hasMoreElements()) {
