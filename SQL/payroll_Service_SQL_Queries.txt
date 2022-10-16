@@ -1,21 +1,35 @@
-//UC1 -> create payroll_service database.
+#UC1 -> create payroll_service database.
 
 create database payroll_service;
 show databases;
 use payroll_service;
 
-//UC2 -> Create Table employee_payroll
+#UC2 -> Create Table employee_payroll
 
 create table employee_payroll(id int auto_increment, name varchar(40), salary double, start_date date, primary key(id));
 desc employee_payroll;
 show tables;
 
-//UC3 -> use CRUD operation
+#UC3 -> use CRUD operation
 insert into employee_payroll(name, salary, start_date) values
 ('Bill', 100000.00, '2018-01-03'),
 ('Mark', 200000.00, '2019-11-13'),
 ('Charlie', 300000.00, '2020-5-21');
 
-//UC4 -> Retriving all data
+#UC4 -> Retriving all data
 SELECT * FROM employee_payroll
 
+#UC4 -> Retrive salary data
+select * from employee_payroll order by name desc;
+select * from employee_payroll where name='Bill' or salary >= 300000.00;
+select min(salary) from employee_payroll;
+select count(salary) from employee_payroll;
+select sum(salary) as sum from employee_payroll;
+select avg(salary) as sum from employee_payroll;
+select max(salary) as sum from employee_payroll;
+select * from employee_payroll where id in (1,3);
+select * from employee_payroll where id between 1 and 3;
+select * from employee_payroll limit 2; 
+select * from employee_payroll WHERE name LIKE '____%';
+update employee_payroll set name = 'Amit' where name = 'Bill';
+select * from employee_payroll;
