@@ -46,3 +46,6 @@ alter table employee_payroll modify column address varchar(20) default 'TBD';
 
 #UC9 -> Ability to extend employee_payroll table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay
 alter table employee_payroll add column(basic pay int, deduction int, taxable pay int, income tax int, net pay int);
+
+#UC10 -> Ability to make Terissa as part of Sales and Marketing Department
+insert into employee_payroll values(4,'Teressa','F',250000,'2015-12-01',982252,'Peackock colony','HR',15000,2000,1000,2000,5000);
