@@ -38,3 +38,9 @@ select sum(salary) FROM employee_payroll WHERE gender = 'f' GROUP BY gender;
 select max(salary) FROM employee_payroll WHERE gender = 'm' GROUP BY gender;
 select min(salary) FROM employee_payroll WHERE gender = 'F' GROUP BY gender;
 select average(salary) FROM employee_payroll WHERE gender = 'm' GROUP BY gender;
+
+UC8 -> Ability to extend employee_payroll data to store employee information like employee phone, address and department
+alter table employee_payroll add column(phonenumber int, address varchar(20), department varchar(20));
+alter table employee_payroll modify column department varchar(20) not null;
+alter table employee_payroll modify column address varchar(20) default 'TBD';
+
