@@ -16,3 +16,6 @@ insert into employee_payroll(name, salary, start_date) values
 ('Mark', 200000.00, '2019-11-13'),
 ('Charlie', 300000.00, '2020-5-21');
 
+//UC4 -> Retriving all data
+SELECT * FROM employee_payroll
+
